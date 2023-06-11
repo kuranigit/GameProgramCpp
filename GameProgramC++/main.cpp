@@ -18,7 +18,6 @@ void PlayerMove(int deltaY, int deltaX);
 int main() {
 	char input;
 	InitGame();
-	DrawScreen();
 
 	while (true)
 	{
@@ -49,6 +48,7 @@ void InitGame() {
 	playerPosY = 0, playerPosX = 0;
 	for (int i = 0; i < HEIGHT; i++)for (int j = 0; j < WIDTH; j++)stage[i].push_back('-');
 	stage[0][0] = '&';
+	DrawScreen();
 }
 
 void DrawScreen() {
@@ -57,7 +57,7 @@ void DrawScreen() {
 }
 
 void PlayerMove(int deltaY, int deltaX) {
-	stage[playerPosY][playerPosX] = '-';
+	stage[playerPosY][playerPosX] = ' ';
 	stage[playerPosY + deltaY][playerPosX + deltaX] = '&';
 	playerPosY += deltaY; playerPosX += deltaX;
 }
